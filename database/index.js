@@ -1,7 +1,6 @@
 var mysql = require('mysql');
 var mysqlConfig = require('./config.js');
 
-
 var con = mysql.createConnection(mysqlConfig);
 
 con.connect((err) => {
@@ -9,7 +8,6 @@ con.connect((err) => {
     console.log(err)
   } else {
     console.log('connected')
-
   }
 });
 
@@ -23,7 +21,5 @@ var getAllProducts = function(callback) {
     }
   });
 };
-
-
 
 module.exports = {getAllProducts, con};

@@ -28,10 +28,11 @@ class App extends React.Component {
         let shoes = [];
         while(this.state.indexArr.length < 9){
           let min = 0;
-          let max = 100;
+          let max = 99;
           let num = Math.floor(Math.random() * (max - min)) + min; 
-          if(!this.state.indexArr.includes(num))
-          this.state.indexArr.push(num)
+          if(!this.state.indexArr.includes(num)){
+            this.state.indexArr.push(num)
+          }
         }
         axios.get('/sponsored')
           .then(res => {
@@ -46,16 +47,11 @@ class App extends React.Component {
             })
             console.log(this.state.shoes)
           })
-                .catch((err) => { console.log(err); });
-            }
+          .catch((err) => { console.log(err); });
+    }
             
-            
-            
-            
-            render() {
-              // console.log(data);
-              //in here I wll map through the data and put each on in their individual div
 
+    render() {
       return (
         <div>
           <Shoe indexArr={this.state.indexArr} click={this.handleClick} shoes={this.state.shoes} price={this.state.price} itemName={this.state.itemName} itemDescription={this.state.itemDescription} pictureUrl={this.state.pictureUrl} />
